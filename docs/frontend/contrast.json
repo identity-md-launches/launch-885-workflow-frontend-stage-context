@@ -1,0 +1,32 @@
+[
+  {
+    "selector": ".observation-panel h2",
+    "foreground": "rgb(22, 37, 31)",
+    "background": "rgb(255, 255, 255)",
+    "ratio": 15.93
+  },
+  {
+    "selector": ".observation-panel > .muted",
+    "foreground": "rgb(97, 107, 96)",
+    "background": "rgb(255, 255, 255)",
+    "ratio": 5.56
+  },
+  {
+    "selector": ".state.selected .probability",
+    "foreground": "rgb(22, 37, 31)",
+    "background": "rgb(228, 238, 217)",
+    "ratio": 13.3
+  },
+  {
+    "selector": ".primary",
+    "foreground": "rgb(22, 37, 31)",
+    "background": "rgb(193, 233, 152)",
+    "ratio": 11.66
+  },
+  {
+    "selector": ".intro h1 em",
+    "foreground": "rgb(52, 76, 44)",
+    "background": "rgb(247, 248, 244)",
+    "ratio": 8.88
+  }
+]

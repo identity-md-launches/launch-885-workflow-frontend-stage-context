@@ -1,0 +1,28 @@
+{
+  "viewports": [
+    {
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "width": 850,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "overflow": false
+    }
+  ],
+  "textResize": "200% at 1440: no overflow",
+  "nativeZoom": "not tested",
+  "pageErrors": [],
+  "failedRequests": []
+}

@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-10-07T07:55:46.082Z",
+  "mode": "read-only; no wallet; no broadcast",
+  "chainId": 1,
+  "contracts": [
+    {
+      "name": "LaunchToken",
+      "address": "0xad455ee2800b314588b5178df0dcbbc5dad7e1c7",
+      "codeBytes": 1722
+    },
+    {
+      "name": "QuantumEngine",
+      "address": "0x44e8c4cfa22626145065a33d5ec74fedfe28c719",
+      "codeBytes": 4789
+    }
+  ],
+  "snapshot": {
+    "block": "26139151",
+    "timestamp": "1791359735",
+    "epoch": "1",
+    "start": "1791358475",
+    "end": "1791362075",
+    "count": 0,
+    "max": 1024,
+    "scale": "1000000",
+    "minBalance": "1000000000000000000",
+    "probabilities": [
+      125000,
+      125000,
+      125000,
+      125000,
+      125000,
+      125000,
+      125000,
+      125000
+    ],
+    "counts": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "observed": false,
+    "balance": "0",
+    "symbol": "QOBS",
+    "decimals": 18,
+    "supply": "1000000000000000000000000000",
+    "nativeBalance": "0",
+    "pairSymbol": "ETH",
+    "pairDecimals": 18,
+    "pairBalance": "0",
+    "at": 1791359746541
+  },
+  "pool": {
+    "poolId": "0x18e47260a956f7b0deb34fb7cc94e817b7b09598fd87d0881fe305f5ec17f071",
+    "slot0": [
+      "792281625142643375935439503360000",
+      184216,
+      0,
+      12500
+    ],
+    "liquidity": "0"
+  }
+}

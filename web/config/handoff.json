@@ -1,0 +1,58 @@
+{
+  "chainId": 1,
+  "poolKey": {
+    "fee": 12500,
+    "hooks": "0x784ff9a3ac5d88a30bfff6f7f2a270161fbe6000",
+    "currency0": "0x0000000000000000000000000000000000000000",
+    "currency1": "0xad455ee2800b314588b5178df0dcbbc5dad7e1c7",
+    "tickSpacing": 60
+  },
+  "repoUrl": "https://github.com/identity-md-launches/launch-884-workflow-contract-stage-context",
+  "version": 1,
+  "launchId": "1626c779-cfae-4288-b1eb-990d16d219f3",
+  "manifest": {
+    "kind": "evm_project",
+    "pool": {
+      "fee": 3000,
+      "tickSpacing": 60,
+      "initialPrice": "79228162514264337593543950336",
+      "pairedCurrency": "0x0000000000000000000000000000000000000000"
+    },
+    "notes": "LaunchToken has no constructor arguments. QuantumEngine receives the deployed launch token and is fully configured in its constructor. It is an ownerless, noncustodial classical quantum-inspired model with eight probabilities, 3600-second epochs, a 1 QOBS observation threshold and at most 1024 observations per epoch. QuantumModel is an internal library embedded in QuantumEngine and needs no separate deployment. No initialization calls are required. The factory supplies the LP, MerkleDistributor and initialization-only PoolInitializationGuard. Pool fields use the canonical native ETH defaults; effective opening price and trading fees are determined by launch policy and services. Policy, allocations, signed artifact linkage, source publication, admission and deployment belong to subsequent service stages.",
+    "token": {
+      "name": "Quantum Observatory",
+      "symbol": "QOBS",
+      "contract": "LaunchToken",
+      "decimals": 18
+    },
+    "contracts": [
+      {
+        "contract": "QuantumEngine",
+        "constructorArgs": [
+          "$token"
+        ]
+      }
+    ]
+  },
+  "contracts": [
+    {
+      "name": "LaunchToken",
+      "txHash": "0x89218c12e6d9833be66ed9672f6501a5e08e6829ebb6567cb1cf63ea3d348f2b",
+      "abiHash": "38880b8e56d42ce900f744a7908c7139632a49f1c3f33385c64ceaed29d37bee",
+      "address": "0xad455ee2800b314588b5178df0dcbbc5dad7e1c7",
+      "blockNumber": 26139046,
+      "creationCodeHash": "55281730a8c038c4efe430d43d49e5693a46d5e1146f9399b35c573bcee3eab9"
+    },
+    {
+      "name": "QuantumEngine",
+      "txHash": "0x89218c12e6d9833be66ed9672f6501a5e08e6829ebb6567cb1cf63ea3d348f2b",
+      "abiHash": "9881a5ac0647520e8b5ff6a029f0c9804161935e35151ea0d51eb103851a7808",
+      "address": "0x44e8c4cfa22626145065a33d5ec74fedfe28c719",
+      "blockNumber": 26139046,
+      "creationCodeHash": "9a70d1708198545038e6316277e894219fca403d7b80aa59c7135b1c409a057f"
+    }
+  ],
+  "sourceCommit": "53c8e396dfaf7add0d1d90dd2ea19c52206feea3",
+  "abiInstructions": "Build ABIs from this exact source commit; compare canonicalKeccak(abi) with abiHash. Verify deployed code on the stated chain before enabling transactions.",
+  "attestationHash": "a7cd602436b2fa410e8d1a41639eed6f27aabd4e1d297a27043c396dff22a349"
+}

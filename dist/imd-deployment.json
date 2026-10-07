@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "launchId": "1626c779-cfae-4288-b1eb-990d16d219f3",
+  "chainId": 1,
+  "sourceCommit": "53c8e396dfaf7add0d1d90dd2ea19c52206feea3",
+  "attestationHash": "a7cd602436b2fa410e8d1a41639eed6f27aabd4e1d297a27043c396dff22a349",
+  "contracts": [
+    {
+      "name": "LaunchToken",
+      "address": "0xad455ee2800b314588b5178df0dcbbc5dad7e1c7",
+      "abiHash": "38880b8e56d42ce900f744a7908c7139632a49f1c3f33385c64ceaed29d37bee",
+      "abiPath": "abi/LaunchToken.json"
+    },
+    {
+      "name": "QuantumEngine",
+      "address": "0x44e8c4cfa22626145065a33d5ec74fedfe28c719",
+      "abiHash": "9881a5ac0647520e8b5ff6a029f0c9804161935e35151ea0d51eb103851a7808",
+      "abiPath": "abi/QuantumEngine.json"
+    }
+  ],
+  "assets": [
+    {
+      "path": "abi/LaunchToken.json",
+      "sha256": "9578fcb499b4ba5fac51462a67a2654d9f803e0ea3af9bdb19130ff695808542"
+    },
+    {
+      "path": "abi/QuantumEngine.json",
+      "sha256": "081a4d0b0d6e861ceb90c29643e19863a97f370e29d001c8d054eb925019c7b7"
+    },
+    {
+      "path": "assets/ccip-CYAU7ZxR.js",
+      "sha256": "4ff9f1a7ce6c9f685b16a1835769e9c1981d832193ebf50917e5de2ef815738e"
+    },
+    {
+      "path": "assets/index-Bu6MgRlO.js",
+      "sha256": "442c16af5d479c0334e963555ccfab13bbad933084bb24be80aeaf2f00b1bdd5"
+    },
+    {
+      "path": "assets/index-CqXVdh1-.css",
+      "sha256": "d583afb60c11d43f8f85340e87ccb62f25e626078867ac00a1513f000f589064"
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "678a8307d42bc7da533e49ca9673f720c66e8ea23abc7638d6142e83dbd76d22"
+    },
+    {
+      "path": "index.html",
+      "sha256": "1fc51f622b3fc64ebd691455b129c4c747743105c3bd2e17de2f83fd12fa4df9"
+    },
+    {
+      "path": "model.md",
+      "sha256": "1100d0e96ad9ab3158dfb03ecbe861ce73e62b6ecab229fc4b9343285df32d4d"
+    }
+  ],
+  "poolKey": {
+    "fee": 12500,
+    "hooks": "0x784ff9a3ac5d88a30bfff6f7f2a270161fbe6000",
+    "currency0": "0x0000000000000000000000000000000000000000",
+    "currency1": "0xad455ee2800b314588b5178df0dcbbc5dad7e1c7",
+    "tickSpacing": 60
+  },
+  "network": {
+    "chainId": 1,
+    "name": "Ethereum",
+    "testnet": false,
+    "rpcUrls": [
+      "https://ethereum-rpc.publicnode.com",
+      "https://eth.drpc.org"
+    ],
+    "explorer": "https://etherscan.io",
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "faucets": [],
+    "uniswapV4": {
+      "poolManager": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "universalRouter": "0x66a9893cc07d91d95644aedd05d03f95e1dba8af",
+      "quoter": "0x52f0e24d1c21c8a0cb1e5a5dd6198556bd9e1203",
+      "stateView": "0x7ffe42c4a5deea5b0fec41c94c136cf115597227",
+      "positionManager": "0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e",
+      "permit2": "0x000000000022d473030f116ddee9f6b43ac78ba3"
+    },
+    "pairToken": {
+      "address": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+      "symbol": "IMD",
+      "name": "Identity.md",
+      "decimals": 18
+    },
+    "otherPairTokens": [
+      {
+        "id": "fwa",
+        "address": "0xa0df17b5ac76ababa36e1450e2cbcd18a620c845",
+        "symbol": "FWA",
+        "name": "Fake World Assets",
+        "decimals": 18
+      }
+    ]
+  },
+  "walletAddChain": {
+    "chainId": "0x1",
+    "chainName": "Ethereum",
+    "rpcUrls": [
+      "https://ethereum-rpc.publicnode.com",
+      "https://eth.drpc.org"
+    ],
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "blockExplorerUrls": [
+      "https://etherscan.io"
+    ]
+  }
+}

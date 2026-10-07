@@ -1,0 +1,20 @@
+{
+  "pinnedHandoffMatches": true,
+  "networkMatches": true,
+  "poolKeyMatches": true,
+  "allAssetHashesMatch": true,
+  "pinnedModelBytesMatch": true,
+  "assetCount": 8,
+  "exportBytesIncludingManifest": 718557,
+  "newFileCount": 54,
+  "newFileBytes": 2840128,
+  "existingTrackedFilesChanged": false,
+  "onlyPermittedNewPaths": true,
+  "dependenciesCachesArchivesExcluded": true,
+  "gitCommit": "Not created: .git/index.lock is on a read-only filesystem.",
+  "existingGitHistoryRawObjectBytes": 990022,
+  "conservativeBundleBudgetBytes": 4878726,
+  "bundleLimitBytes": 8388608,
+  "bundleBoundMethod": "All existing reachable Git object bytes plus all new file bytes plus 1 MiB packaging reserve; no compression savings assumed.",
+  "noNewSymlinksOrSubmodules": true
+}
