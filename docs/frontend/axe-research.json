@@ -11,6 +11,7 @@
     "aria-roles",
     "aria-valid-attr-value",
     "aria-valid-attr",
+    "avoid-inline-spacing",
     "button-name",
     "bypass",
     "color-contrast",

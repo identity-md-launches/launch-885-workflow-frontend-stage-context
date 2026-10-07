@@ -51,7 +51,7 @@ test("disconnected, missing wallet and static research content", async ({
   await expect(page.locator(".wallet-message")).toContainText(
     "No browser wallet found",
   );
-  await page.getByRole("link", { name: "The model", exact: true }).click();
+  await page.getByRole("link", { name: "Model notes", exact: true }).click();
   await expect(page.locator(".prose")).toContainText(
     "Approximations and unknowns",
   );
@@ -120,6 +120,9 @@ test("observe simulates, handles rejection, confirms once and blocks duplicates"
   );
   await expect(submit).toBeDisabled();
   expect(model.sendCount).toBe(1);
+  expect(model.txs[0].to.toLowerCase()).toBe(
+    manifest.contracts.find((c: any) => c.name === "QuantumEngine").address,
+  );
   expect(
     decodeFunctionData({ abi: engineAbi, data: model.txs[0].data }).args,
   ).toEqual([4]);
@@ -156,6 +159,9 @@ test("eligibility: low balance, capacity, expiry and advance epoch", async ({
     "Confirmed",
   );
   expect(m.epoch).toBe(2n);
+  expect(m.txs[0].to.toLowerCase()).toBe(
+    manifest.contracts.find((c: any) => c.name === "QuantumEngine").address,
+  );
   expect(m.count).toBe(0);
   await expect(
     page.getByRole("button", { name: "Advance epoch", exact: true }),
@@ -361,6 +367,13 @@ test("token transfer, allowance revoke, and delegated transfer have review contr
       (t) => decodeFunctionData({ abi: tokenAbi, data: t.data }).functionName,
     ),
   ).toEqual(["transfer", "approve", "transferFrom"]);
+  expect(
+    m.txs.every(
+      (t) =>
+        t.to.toLowerCase() ===
+        manifest.contracts.find((c: any) => c.name === "LaunchToken").address,
+    ),
+  ).toBe(true);
 });
 test("missing code and invalid ABI prevent actions; network errors recover", async ({
   page,
@@ -428,7 +441,7 @@ test("responsive, keyboard, research reflow and automated accessibility", async 
     evidence.push({ width, overflow: false });
     if (width === 1440 || width === 390 || width === 320)
       await page.screenshot({
-        path: `../docs/frontend/screenshots/observatory-${width}.png`,
+        path: `../docs/frontend/screenshots/observatory-${width}.webp`,
         fullPage: true,
       });
   }
@@ -491,7 +504,7 @@ test("responsive, keyboard, research reflow and automated accessibility", async 
     ),
   );
   expect(results.violations).toEqual([]);
-  await page.getByRole("link", { name: "The model", exact: true }).click();
+  await page.getByRole("link", { name: "Model notes", exact: true }).click();
   await expect(page.locator(".prose")).toBeVisible();
   expect(
     await page.evaluate(
@@ -514,7 +527,7 @@ test("responsive, keyboard, research reflow and automated accessibility", async 
   );
   expect(results.violations).toEqual([]);
   await page.screenshot({
-    path: "../docs/frontend/screenshots/research-320.png",
+    path: "../docs/frontend/screenshots/research-320.webp",
     fullPage: true,
   });
   await page.emulateMedia({ reducedMotion: "reduce" });

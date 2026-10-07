@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "mode": "static",
+  "liveEndpoint": null,
+  "currentSnapshot": "initial.json",
+  "snapshots": [
+    {
+      "id": "qobs-research-2026-10-07.1",
+      "path": "initial.json",
+      "version": "1.0.0"
+    }
+  ]
+}

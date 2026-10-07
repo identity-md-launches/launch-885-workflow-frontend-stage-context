@@ -1,4 +1,4 @@
-# Quantum Observatory frontend
+# Quantum Observatory v2 frontend
 
 A static Vite / React / TypeScript application for the deployed QOBS token and QuantumEngine. Source is in `web/`; the complete hosting payload is repository-root `dist/`. There is no backend, private credential, WalletConnect project ID, or vendored registry. Dependencies are installed from the committed npm lockfile.
 
@@ -16,7 +16,7 @@ npm run preview:subpath
 
 The subpath preview exits after 30 minutes or Ctrl-C. `npm run preview` also serves the production export using Vite. `npm run dev` runs the source development server; first build once because its middleware serves verified runtime files from `dist/`.
 
-`npm run build` runs typecheck, builds with `base: './'`, copies the pinned implementation ABI arrays and model notes, then emits `dist/imd-deployment.json` from the final bytes. Rebuild after source changes; never edit a generated asset without regenerating the manifest. Hash routing (`#observatory`, `#research`) needs no server rewrites. Publish the contents of `dist/` as one directory. No publication or contract deployment is performed by these commands.
+`npm run build` runs typecheck, builds with `base: './'`, copies the pinned implementation ABI arrays and model notes, then emits `dist/imd-deployment.json` from the final bytes. Rebuild after source changes; never edit a generated asset without regenerating the manifest. Hash routing (`#observatory`, `#research`, `#laboratory`, `#library`) needs no server rewrites. Publish the contents of `dist/` as one directory. No publication or contract deployment is performed by these commands.
 
 ## One deployment configuration
 
@@ -49,14 +49,25 @@ npm run verify
 npm run check:live  # Read-only public RPC check; never broadcasts
 ```
 
-Install Chromium for normal local browser testing with `npx playwright install chromium`. `BROWSER_EXECUTABLE` can select an existing Chromium executable. On a resource-constrained worker, set `BROWSER_LOW_RESOURCE=1`: this uses a fresh Chromium process for every test and limits subprocess creation. The browser suite serves the production export at `/preview/`, intercepts both configured RPCs and wallet requests, and never signs or broadcasts real transactions. Reports and screenshots go under `docs/frontend/`; temporary traces are under `test/scratch/`.
+Install Chromium for normal local browser testing with `npx playwright install chromium`. `BROWSER_EXECUTABLE` can select an existing Chromium executable. On a resource-constrained worker, set `BROWSER_LOW_RESOURCE=1`: this uses a fresh Chromium process for every test and limits subprocess creation. The browser suite serves the production export at `/preview/`, intercepts both configured RPCs and wallet requests, and never signs or broadcasts real transactions. Reports and screenshots go under `docs/frontend/` and worker `artifacts/`; durable v2 evidence is preserved in `docs/v2/`. Temporary traces are under `test/scratch/`.
 
-See `docs/frontend/VALIDATION.md` for actual worker results and limits, `docs/DESIGN.md` for implemented design tokens/components, and the adjacent license files for pinned guide attribution. Native screen-reader sessions, hardware-wallet behavior, native browser zoom and real paid transactions are not certified by these tests. No USD oracle was supplied, so the UI explicitly says USD prices are unavailable. Absolute social-image URLs await the publisher's final hosting URL.
+See `../docs/v2/validation.md` for v2 worker results and limits, `../DESIGN.md` for implemented design tokens/components, and the adjacent license files for pinned guide attribution. Native screen-reader sessions, hardware-wallet behavior, native browser zoom and real paid transactions are not certified by these tests. No USD oracle was supplied, so the UI explicitly says USD prices are unavailable. Absolute social-image URLs await the publisher's final hosting URL.
 
 ## Scope and packaging
 
-All source, dependencies and frontend configuration stay inside `web/`. The explicit `web/.gitignore` budget is used only for dependency/cache/test-output exclusions at every nesting level. `node_modules`, registries, dependency archives and caches are excluded. The root build and deployed contract sources are untouched. The assignment simultaneously requested a root `DESIGN.md` and prohibited all root writes except `dist/`; its overriding path restriction is honored by placing that document at `docs/DESIGN.md`.
+All source, dependencies and frontend configuration stay inside `web/`. The existing `web/.gitignore` excludes dependency/cache/test outputs at every nesting level; this upgrade does not modify any ignore file. `node_modules`, registries, dependency archives and caches are excluded. The root build and deployed contract sources are untouched. The final design document is repository-root `DESIGN.md`. Existing package manifests, lockfiles, build configuration, contract sources and dependency sources are unchanged. The existing package metadata still reads 1.0.0 because it is protected; the website release is v2.
 
 Design guidance: Better Interface, Jakub Krehel, MIT, pinned commit `267330e1adfc66a718fb65fa6918c1f06d0a689e`. Documentation method: Paul Bakaus / Impeccable, Apache-2.0, pinned commit `9d715cc4f5564a990ca8345abfdd5df6dc9b41c8`. Ethereum UX guidance: Austin Griffith / ethskills, MIT, pinned commit `06ea4efa08076ff04f6ca4945ef4a2ca881115b0`. This site adapts the guides to this specific product and write budget; full notices are preserved under `docs/frontend/`.
 
 Protocol encoding was cross-checked against the primary Uniswap [routing guide](https://developers.uniswap.org/docs/protocols/v4/guides/swapping/routing) and [quoter guide](https://developers.uniswap.org/docs/sdks/v4/guides/swapping/quoting). Deployment addresses always come from the supplied network configuration.
+
+## v2 additions and publishing
+
+- Original AI-generated local WebP hero and interference images; prompts and optimization notes in `../docs/v2/artwork.md`. Responsive source selection, lazy illustrations and separate page/Markdown chunks keep loading bounded.
+- A browser-only exact integer model, two parameter sliders, starting-vector/histogram experiments, up to twelve repeated steps, fixed 25%/25% baseline comparison, optional frozen live input and provenance-bearing JSON export. No lab action calls a wallet.
+- The static Learning library has ten existing sources, search/topic filters, retrieval-date qualifications, evidence levels, changes, evaluation and SHA-256 provenance. `public/research/initial.json` is the versioned snapshot and `snapshot.schema.json` is the documented interchange schema. No live research endpoint is configured or polled.
+- `public/research/collector.md` describes a future separately hosted collector; `rewards.md` describes a separately pre-funded program using realised revenue. Neither is an operating service. The current engine remains immutable and pays no rewards.
+
+Publish the **contents of repository-root `dist/`**, with its relative paths intact, through the existing IdentityMD publisher as the next version of **qobs.site.identitymd.eth** (qobs). Preserve the existing name and deployment. A rebuild is not an on-chain deployment. The publisher must pin the directory, update that existing site's content reference and report the resulting CID; test the published gateway at its real subpath, direct hash navigation and relative assets. The worker has no configured hosting publication capability and does not claim a new public CID or updated ENS record. `../docs/v2/release.json` records the intended target and publication handoff.
+
+On this worker, commands longer than about one minute were terminated, so browser tests ran in bounded batches; see the exact commands and individual reports in `../docs/v2/validation.md`. All paid wallet interactions are mocked. For a regular workstation, `npm run test:browser` runs the full suite.

@@ -1,0 +1,76 @@
+{
+  "report": [
+    {
+      "route": "laboratory",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "laboratory",
+      "width": 950,
+      "overflow": false
+    },
+    {
+      "route": "laboratory",
+      "width": 850,
+      "overflow": false
+    },
+    {
+      "route": "laboratory",
+      "width": 580,
+      "overflow": false
+    },
+    {
+      "route": "laboratory",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "laboratory",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "laboratory",
+      "axeViolations": []
+    },
+    {
+      "route": "library",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "library",
+      "width": 950,
+      "overflow": false
+    },
+    {
+      "route": "library",
+      "width": 850,
+      "overflow": false
+    },
+    {
+      "route": "library",
+      "width": 580,
+      "overflow": false
+    },
+    {
+      "route": "library",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "route": "library",
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "route": "library",
+      "axeViolations": []
+    }
+  ],
+  "errors": [],
+  "failed": [],
+  "reducedMotion": "0s chart transitions",
+  "textResize": "200% at 1440, both routes, no overflow"
+}

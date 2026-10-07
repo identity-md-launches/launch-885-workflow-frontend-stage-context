@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-07T09:58:12.593Z",
+  "tool": "Ajv draft 2020-12, strict, ajv-formats",
+  "snapshot": "web/public/research/initial.json",
+  "schema": "web/public/research/snapshot.schema.json",
+  "valid": true
+}

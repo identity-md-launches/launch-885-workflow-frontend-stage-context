@@ -1,0 +1,14 @@
+{
+  "siteName": "qobs.site.identitymd.eth",
+  "projectName": "qobs",
+  "websiteVersion": "2.0.0",
+  "previousVersion": "ipfs://bafybeibrlkeja6jsewrfdbecrdgbnpaxdz6r3diriqkzj5myqawn6q425e",
+  "exportDirectory": "dist",
+  "entry": "dist/index.html",
+  "routing": "relative assets and hash routes",
+  "status": "export-ready-for-existing-publisher",
+  "published": false,
+  "newCid": null,
+  "publicationLimitation": "No hosting publication tool or credentials are configured in this workspace. The existing IdentityMD publisher must publish this export under the same site name.",
+  "onChainDeploymentPerformed": false
+}

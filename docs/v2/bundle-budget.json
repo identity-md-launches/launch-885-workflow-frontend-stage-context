@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-07",
+  "limitBytes": 8388608,
+  "candidateFileCount": 168,
+  "candidateBytes": 6755566,
+  "productionExportBytes": 1076974,
+  "method": "All existing tracked files plus nonignored untracked deliverable files, excluding removed .imd inputs and disposable test/scratch; includes this record. Uncompressed bytes are a conservative payload budget.",
+  "exclusions": [
+    ".git metadata and history",
+    "workspace-excluded artifacts/ copies; durable copies are in docs/v2/",
+    "all generated dependencies and caches",
+    "removed inputs and scratch tests"
+  ],
+  "noSubmodules": true,
+  "noDependencyArchives": true,
+  "ignoreFilesChanged": false
+}

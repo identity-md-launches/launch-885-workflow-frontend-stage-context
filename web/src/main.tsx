@@ -3,6 +3,7 @@ import { Component, type ReactNode } from "react";
 import App from "./App";
 import { loadRuntime } from "./config";
 import "./styles.css";
+import "./v2.css";
 class Boundary extends Component<{ children: ReactNode }, { error: boolean }> {
   state = { error: false };
   static getDerivedStateFromError() {

@@ -1,68 +1,66 @@
-# Quantum Observatory (QOBS)
+# Quantum Observatory v2 · QOBS
 
-Quantum Observatory is a classical, deterministic experiment with eight probabilities and community observations. This contribution delivers the contracts, tests, ABI exports, scientific model documentation, and deployment handoff for the contract stage.
+An open, deterministic eight-state experiment on Ethereum. The v2 website adds original quantum-inspired artwork, animated probabilities, a browser model laboratory and a traceable Learning library while preserving the existing wallet flows and verified deployment.
 
-## Build and check
+## Run the website
 
-Foundry and Solidity **0.8.26** are the only build prerequisites. All Solidity dependencies are ordinary files under `lib/`; no network, submodules, environment variables, FFI, or filesystem cheatcodes are required by the tests. An offline verifier must already carry the pinned compiler. No compiler binary is included.
+Use Node.js 22.12+ and npm (worker: Node 24.21.0, npm 11.19.0).
 
 ```sh
-forge build
-forge test
-forge fmt --check
-python3 tools/export_abi.py --check
+cd web
+npm ci --cache /tmp/qobs-npm-cache
+npm run typecheck
+npm run build
+npm run preview:subpath
+# http://127.0.0.1:4173/preview/
 ```
 
-`foundry.toml` pins the Cancun EVM, optimizer with 200 runs, and `bytecode_hash = "none"`. ABI files are [LaunchToken.json](docs/abi/LaunchToken.json) and [QuantumEngine.json](docs/abi/QuantumEngine.json). See [the interface guide](docs/abi/README.md).
+`npm run dev` runs Vite after an initial build. `npm run preview` serves the production export. `npm run build` typechecks, produces repository-root `dist/`, copies the pinned ABIs/model notes and hashes the final asset inventory. Keep the pinned source commit available to Git: the exporter reads its exact ABI and documentation bytes. Source, the existing manifest and lockfile live in `web/`; the complete static export is delivered in `dist/`.
 
-## Behavior
+## Publish the next qobs version
 
-| Parameter | Fixed value |
+Publish **the contents of `dist/` as one directory** with the existing IdentityMD hosting publisher, targeting **qobs.site.identitymd.eth** (qobs). Pin the directory, update that existing site's content reference, then verify its public gateway/subpath and hash navigation. Do not deploy a contract, create a replacement token, or change the site's name. Vite uses `base: './'`; all runtime assets are local and relative. There is no rewrite server, secret or backend in the export.
+
+The worker prepared and validated the export for that publisher. No publication tool or hosting credentials are configured here, so a new public CID/ENS update is **not claimed**. [Release handoff](docs/v2/release.json) records this boundary and the previous version.
+
+## Existing deployment — unchanged
+
+| Item | Value |
 | --- | --- |
-| Token | Quantum Observatory / QOBS |
-| Supply | 1,000,000,000 tokens, 18 decimals; exactly `10^27` minor units |
-| Mint recipient | Constructor caller, which is ProjectFactory during launch |
-| Probabilities | Eight integers totaling 1,000,000; initially 125,000 each |
-| Epoch | Begins at deployment, then at each successful advancement; 3,600-second submission window |
-| Eligibility | Caller holds at least `10^18` QOBS minor units at submission |
-| Observation | One state in 0–7 per address per epoch; at most 1,024 observations |
-| Advancement | Anyone after expiry, including with zero QOBS; exactly one transition per call |
+| Network | Ethereum mainnet, chain 1 |
+| QOBS | `0xad455ee2800b314588b5178df0dcbbc5dad7e1c7` |
+| QuantumEngine | `0x44e8c4cfa22626145065a33d5ec74fedfe28c719` |
+| Supply | 1,000,000,000 QOBS, 18 decimals |
+| Epoch | 3,600 seconds; 8 states; scale 1,000,000 |
+| Participation | Hold 1 QOBS; one choice per address/epoch; max 1,024 observations |
+| Pool | Existing attested ETH/QOBS pool; fee 12500, tick spacing 60 and original hook |
+| Source commit | `53c8e396dfaf7add0d1d90dd2ea19c52206feea3` |
 
-`observe(state)` reads the QOBS balance and records a choice. It never requests approval, transfers tokens, locks funds, mints rewards, or changes probabilities immediately. At `timestamp == epochEndsAt()`, observation closes and `advanceEpoch()` becomes available. Full epochs still wait for expiry. A delayed advancement starts a fresh full window at its transaction timestamp; missed hours do not cause catch-up transitions. Histograms and eligibility reset, while the newly calculated probabilities persist.
+The browser loads one generated deployment manifest and checks the pinned ABI hashes, chain, deployed code and engine token reference. Observation, advancement, exact approvals, swaps, token transfer/revoke/delegated transfer and wallet switching retain their simulations, review and receipt handling. Failed/stale state disables writes. No contract source, supply, balance or liquidity change is part of this upgrade; no transaction was broadcast by the worker.
 
-The model reconstructs real amplitudes, applies an eight-state Hadamard transform, squares and normalizes, mixes 25% uniform noise, then incorporates 25% observation frequencies if there are observations. Exact equations, rounding, ten scientific sources, and limitations are in [docs/model.md](docs/model.md). This produces no random outcome and has no financial payout.
+The engine is immutable, ownerless and noncustodial, and **has no payouts**. Observations spend no QOBS and are user-selected labels, not physical quantum measurements. This classical model provides no randomness, price predictions or automatic profit. Complete [model notes and ten existing sources](docs/model.md) remain bundled in the site.
 
-The engine has no owner, pause, withdrawal, upgrade, token-changing, or administrative functions. The launch token is a plain OpenZeppelin ERC-20 with no extra externally reachable mint or burn path, fee, blocklist, limit, owner, or upgrade power.
+## What is new
 
-## Assumptions and operational limits
+- Original AI-generated hero and interference-field WebP assets with responsive loading; mint-on-forest typography; desktop/mobile layouts; reduced-motion support.
+- Browser-only experiments vary uniform mixing and observation feedback, compare with the fixed on-chain baseline, optionally copy a frozen live input and export reproducible JSON. The baseline matches all 32 existing reference vectors.
+- Learning library search and topic filters, a static initial snapshot of existing sources, explicit retrieval-date provenance, evidence classifications, changes, model evaluation and limitations. No live research endpoint is configured.
+- A [versioned snapshot schema](web/public/research/snapshot.schema.json), [future hosted collector design](web/public/research/collector.md) and [future realised-revenue reward proposal](web/public/research/rewards.md). Neither proposal is implemented as a service or funded program.
 
-- The engine constructor receives this launch's **LaunchToken**, using `$token`. It checks that code exists, not that arbitrary supplied code implements QOBS. The dependency is immutable.
-- Eligibility is per address, not per person or token unit. Transferring or borrowing the same QOBS can qualify multiple addresses. Bots can fill all 1,024 slots. Transaction ordering matters when capacity is exhausted.
-- There is no keeper subsidy. Any willing caller pays gas to advance. If nobody does, the expired epoch remains closed. Block timestamps gate the window; they never seed a random process.
-- Engine state occupies at most **2,052 storage slots**: four scalar/array slots and a fixed 2,048-record table. Each record packs an address and epoch tag. Logs and blockchain history grow; contract storage does not grow with historical users. Token balances/allowances retain normal ERC-20 mapping behavior.
-- Hash collisions are resolved by linear probing, with at most 1,025 reads per lookup. Deliberately colliding addresses can increase observation/view gas. Advancement does not scan the table. Epoch tags use checked `uint64` increments; exhaustion would require roughly 2.1 quadrillion years of hourly epochs.
-- The contracts reject ordinary ETH payments. Anyone can still transfer ERC-20s directly to them or force ETH to an address; there is no recovery function. Such balances are not used by the model.
-
-## Launch economics and responsibilities
-
-The factory receives the whole token supply. It supplies the distributor, pool, and initialization guard and performs the protocol split: 10% swarm (2% accepted contributors; 8% paired seats), 90% requester, with the selected requester liquidity allocation coming from that 90%. The platform default is 80% of total supply to liquidity and 10% to the requester wallet. These contracts do not allocate, retain, or forward those shares.
-
-Pool economics remain platform-controlled. Canonical admission uses fee `3000`, tick spacing `60`, and legacy price `79228162514264337593543950336`. The effective opening price follows the pinned policy; actual trading fees follow the chain's LaunchFees configuration (platform default 1.25% total: 1% requester/payer and 0.25% IMD). No pool-fee logic is embedded in QOBS or the engine.
-
-[docs/deployment.md](docs/deployment.md) defines constructor arguments, source identifiers, deployment order, and handoff responsibilities. The separate manifest contributor writes `launch.json`; the independent reviewer examines accepted source and that manifest. Services publish source, attest, admit, deploy on Ethereum mainnet, and hand exact addresses and pool parameters to the subsequent website/IPFS stage. Publication, a public IPFS URL, and deployed addresses are not claimed by this source contribution.
-
-The later website must display the complete model document, connect wallets, show deployed addresses and live state, and offer observation and advancement transactions using the exported ABIs. The model document is part of the source artifact, not a dependency on a separate research task.
-
-## Validation and review
-
-The suite covers token supply and ERC-20 failure behavior, factory constructor execution and runtime checks, eligibility, duplicates, epoch boundaries and delays, 1,024 observations over successive epochs, hash collisions, token-read failure and hostile callbacks, events, order-independent transitions, exact reference vectors, fuzzed mass conservation, and stateful invariants.
-
-The Python standard-library [reference model](tools/model_reference.py) generates 32 checked-in Solidity vectors using explicit matrix multiplication and `math.isqrt`, independently of the Solidity butterfly and Newton implementations. Regeneration is optional:
+## Check and maintain
 
 ```sh
-python3 tools/model_reference.py
-forge fmt test/QuantumVectors.t.sol
-forge test
+cd web
+npm run typecheck
+npm test
+npm run verify
+npx playwright install chromium
+npm run test:browser
+npm run check:live  # read-only RPC/code/supply/pool verification
 ```
 
-See [docs/security.md](docs/security.md) for implementation review notes and residual risks. Local checks are not an independent security audit. Independent review of source and final manifest remains a required later-stage responsibility. No transactions were broadcast and no wallet keys are used.
+The worker ran the production build, typecheck, ten unit tests, browser interaction checks and read-only mainnet validation. [Actual results, bounded browser commands and limitations](docs/v2/validation.md) distinguish mocked wallet checks from live reads. No real signing, paid transactions, native screen reader or physical mobile wallet testing is claimed.
+
+[DESIGN.md](DESIGN.md) describes the final tokens, type, components and responsive behavior. [web/README.md](web/README.md) explains wallet/protocol details and build integrity. [Artwork provenance](docs/v2/artwork.md) contains the exact generation prompts. Existing build configuration, package manifests, lockfiles and dependency directories are unchanged. No ignore files were edited; package caches and generated dependencies are excluded from submission. The complete candidate bundle is checked against the 8 MiB limit.
+
+Contract source and tests are retained. Their established optional commands are `forge build`, `forge test`, `forge fmt --check` and `python3 tools/export_abi.py --check`; this website upgrade does not claim to have rerun the Solidity suite. See [security notes](docs/security.md), [deployment history](docs/deployment.md) and [ABI documentation](docs/abi/README.md).

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "id": "qobs-research-2026-10-07.1",
+  "version": "1.0.0",
+  "title": "The foundations of the Observatory",
+  "createdAt": "2026-10-07",
+  "mode": "static",
+  "source": "docs/model.md",
+  "retrievalDate": "2026-10-07",
+  "evidenceLevel": "documentation-snapshot",
+  "changes": [
+    "Initial snapshot of the ten scientific sources and model notes already bundled with Quantum Observatory.",
+    "No new papers, independent paper review, or ongoing research collection is claimed."
+  ],
+  "modelEvaluation": {
+    "status": "documented-baseline",
+    "model": "Eight-state integer Hadamard / uniform mixing / histogram feedback",
+    "baselineParameters": {
+      "uniformMixingPercent": 25,
+      "observationFeedbackPercent": 25
+    },
+    "evidence": "Existing project documentation describes 32 differential vectors, integer mass conservation and stateful invariants. See the v2 validation report for checks actually rerun.",
+    "limitations": [
+      "Classical deterministic toy model, not quantum hardware or physical measurements.",
+      "Zero-phase reconstruction discards complex phase and entanglement.",
+      "25% parameters are uncalibrated design choices.",
+      "No convergence, price prediction, randomness or profit claim.",
+      "Address-based observations are vulnerable to Sybil participation and capacity bias."
+    ]
+  },
+  "provenance": {
+    "repository": "https://github.com/identity-md-launches/launch-884-workflow-contract-stage-context",
+    "sourceCommit": "53c8e396dfaf7add0d1d90dd2ea19c52206feea3",
+    "documentPath": "docs/model.md",
+    "documentSha256": "1100d0e96ad9ab3158dfb03ecbe861ce73e62b6ecab229fc4b9343285df32d4d",
+    "method": "Extracted from the existing, pinned project model documentation. Scientific text retrieval dates are inherited; primary papers were not fetched again for this snapshot.",
+    "review": "Project documentation; not independent validation of the engine."
+  },
+  "sources": [
+    {
+      "id": "source-1",
+      "title": "Probabilities from Entanglement, Born's Rule from Envariance",
+      "authors": "Wojciech H. Zurek",
+      "url": "https://arxiv.org/pdf/quant-ph/0405161",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Probability",
+      "notes": "(2005; arXiv quant-ph/0405161). Section II develops squared-amplitude probabilities from envariance; its discussion of phases emphasizes that discarding them generally loses information. We use the squared-amplitude rule and explicitly disclose the zero-phase reconstruction. We do not implement entanglement or claim to reproduce the derivation."
+    },
+    {
+      "id": "source-2",
+      "title": "Quantum random walks — an introductory overview",
+      "authors": "Julia Kempe",
+      "url": "https://arxiv.org/pdf/quant-ph/0303081",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Interference",
+      "notes": "(2003; arXiv quant-ph/0303081). The discrete-walk discussion, especially equation (13), gives the signed Hadamard coin and shows how cancellations alter probabilities. This motivates a simple signed transform, but our eight-state tensor transform omits the walk's conditional position shift."
+    },
+    {
+      "id": "source-3",
+      "title": "Quantum Walk on the Line",
+      "authors": "Ashwin Nayak and Ashvin Vishwanath",
+      "url": "https://arxiv.org/pdf/quant-ph/0010117",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Interference",
+      "notes": "(2000; arXiv quant-ph/0010117). Section 2.1 defines the Hadamard transformation on chirality and its coupled position update; the Fourier analysis studies the resulting amplitudes. This supplies a concrete interference example and highlights why probability storage alone cannot retain a quantum walk's state."
+    },
+    {
+      "id": "source-4",
+      "title": "Quantum walk on the line as an interference phenomenon",
+      "authors": "Peter L. Knight, Eugenio Roldán, and J. E. Sipe",
+      "url": "https://arxiv.org/pdf/quant-ph/0304201",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Interference",
+      "notes": "(2003; arXiv quant-ph/0304201). The optical construction and difference equations explain how a walk's interference pattern can have a classical implementation. That distinction supports describing this software as quantum-inspired without attributing nonclassical hardware or computational advantage to it."
+    },
+    {
+      "id": "source-5",
+      "title": "Quantum Walks on Graphs",
+      "authors": "Dorit Aharonov, Andris Ambainis, Julia Kempe, and Umesh Vazirani",
+      "url": "https://arxiv.org/pdf/quant-ph/0012090",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Interference",
+      "notes": "(2001; arXiv quant-ph/0012090, revised 2002). The introduction and mixing definitions distinguish unitary evolution from Markov-chain convergence and use time-averaged distributions. We therefore make no convergence claim from the mere use of a Hadamard transform; our feedback/reset map is a different process."
+    },
+    {
+      "id": "source-6",
+      "title": "Decoherence, einselection, and the quantum origins of the classical",
+      "authors": "Wojciech H. Zurek",
+      "url": "https://arxiv.org/pdf/quant-ph/0105127",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Decoherence",
+      "notes": "(2003; arXiv quant-ph/0105127). The density-matrix discussion and position-space damping equations distinguish coherence loss from population change. This constrains our terminology: uniform mixing is a depolarizing analogy, while real environment-induced decoherence involves correlations and preferred states absent from the engine."
+    },
+    {
+      "id": "source-7",
+      "title": "Decoherence, the measurement problem, and interpretations of quantum mechanics",
+      "authors": "Maximilian Schlosshauer",
+      "url": "https://arxiv.org/pdf/quant-ph/0312059",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Decoherence",
+      "notes": "(arXiv 2003, revised 2005; quant-ph/0312059). Section III's reduced-density-matrix example, equations (3.14)–(3.17), exposes the interference coefficient and its environmental damping. It justifies documenting that our eight probabilities omit coherences and that user observations do not resolve the physical measurement problem."
+    },
+    {
+      "id": "source-8",
+      "title": "The quantum to classical transition for random walks",
+      "authors": "Todd A. Brun, Hilary A. Carteret, and Andris Ambainis",
+      "url": "https://arxiv.org/pdf/quant-ph/0208195",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Decoherence",
+      "notes": "(2003; arXiv quant-ph/0208195). The coin-noise model, including the dephasing operators in equation (25), contrasts decoherence with merely increasing coin dimension. We retain a distinct mixing stage and do not claim that an enlarged classical state vector alone constitutes decoherence. Their asymptotic variance results do not apply to our reset map."
+    },
+    {
+      "id": "source-9",
+      "title": "Decoherence can be useful in quantum walks",
+      "authors": "Viv Kendon and Ben Tregenna",
+      "url": "https://arxiv.org/pdf/quant-ph/0209005",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Decoherence",
+      "notes": "(2003; arXiv quant-ph/0209005). Section III introduces density-matrix evolution with intermittent decoherence and studies effects on spreading and uniformity. It motivates considering an explicit noise contribution while leaving its rate a documented design choice. It does not establish an optimal rate for this application."
+    },
+    {
+      "id": "source-10",
+      "title": "Decoherence in quantum walks — a review",
+      "authors": "Viv Kendon",
+      "url": "https://arxiv.org/pdf/quant-ph/0606016",
+      "retrievalDate": "2026-10-07",
+      "retrievalBasis": "Date reported by the existing model documentation; not re-retrieved for v2.",
+      "evidenceLevel": "theoretical-background",
+      "topic": "Decoherence",
+      "notes": "(2007; arXiv quant-ph/0606016). The mixed-state formalism and equation (49) combine coherent evolution with projected evolution. They support separating an interference calculation from a nonunitary contribution and specifying precisely which channel analogy is used. Our uniform mixing and histogram feedback are not the review's projection superoperator."
+    }
+  ]
+}
